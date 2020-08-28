@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  web_flask:
+  flask:
     image: peffranckpeffan/flask
     ports:
       - "80:5098"
@@ -12,7 +12,7 @@ services:
     depends_on:
       - mongodb
     deploy:
-      replicas:3
+      replicas: 3
   mongodb:
     image: peffranckpeffan/mongodb
     environment:
@@ -22,8 +22,6 @@ services:
       - 27017:27017
     volumes:
       - mongodb_data_container:/data/db
-    
-
 volumes:
   mongodb_data_container:
 

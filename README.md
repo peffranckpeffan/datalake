@@ -57,8 +57,8 @@ Agora nosso cluster está criado e podemos criar nossos serviços. Para faze-lo 
 docker stack deploy --with-registry-auth -c docker-compose.yml app
 ```
 
-As imagens dos serviços já estão criadas e hospedados em um repositorio publico no Docker Hub.
+As imagens dos serviços já estão criadas e hospedadas em um repositorio publico no Docker Hub.
 Assim pode-se fazer requisições para o nosso cluster:
 ```bash
-curl -XPOST http://192.168.99.100:/v1/products/ -d '[{"id": "123", "name": "mesa"}]'
+curl -XPOST http://$(docker-machine ip manager):/v1/products/ -d '[{"id": "123", "name": "mesa"}]'
 ```

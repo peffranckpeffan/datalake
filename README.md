@@ -56,6 +56,11 @@ Agora nosso cluster está criado e podemos criar nossos serviços. Para faze-lo 
 docker stack deploy --with-registry-auth -c docker-compose.yml app
 ```
 
+Ainda na maquina manager podemos ver o serviçoes rodando (o mongodb pode demorar alguns minutos para ficar pronto):
+```bash
+docker service ls
+```
+
 As imagens dos serviços já estão criadas e hospedadas em um repositorio publico no Docker Hub.
 Assim pode-se fazer requisições para o nosso cluster:
 ```bash

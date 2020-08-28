@@ -20,14 +20,13 @@ docker-machine create --driver virtualbox worker2
 ```
 Esses comandos criarão trẽs maquinas que irão hospedar nosso cluster, a primeira sera o node master onde o Swarm será inicializado e as outras duas serão nodes workers.
 
-Após criadas deve-se acessar a máquina que será nossa master:
-```bash
-docker-machine ssh manager
-
-```
-Depois de acessa-la inicia-se o Swarm, substituindo <MANAGER-IP> pelo ip retornado no primeiro comando.
+Após criadas deve-se acessar a máquina que será nossa master, podemos ver seu ip:
 ```bash
 docker-machine ip manager
+docker-machine ssh manager 
+```
+Depois de acessa-la inicia-se o Swarm, substituindo <MANAGER-IP> pelo ip retornado no primeiro comando acima.
+```bash
 docker swarm init --advertise-addr <MANAGER-IP>
 ```
 Ainda na maquina manager digita-se o comando:

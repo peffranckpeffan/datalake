@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  web_flask:
+    image: peffranckpeffan/flask
+    ports:
+      - "80:5098"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'root'
+      MONGO_INITDB_ROOT_PASSWORD: 'rootpassword'
+      MONGODB_HOSTNAME: 'mongodb'
+    depends_on:
+      - mongodb
+    deploy:
+      replicas:3
+  mongodb:
+    image: peffranckpeffan/mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'root'
+      MONGO_INITDB_ROOT_PASSWORD: 'rootpassword'
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+    
+
+volumes:
+  mongodb_data_container:
+
